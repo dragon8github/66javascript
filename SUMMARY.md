@@ -4,5 +4,6 @@
 
 ## 第一章
 
-* [First Chapter](chapter1.md)
+* [闭包](chapter1.md)
+* [NaN](nann.md)
 
