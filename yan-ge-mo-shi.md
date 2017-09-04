@@ -37,10 +37,9 @@ function g () {
 **第二个解决方案是将自己开发的js代码，用IIFE（立即执行的函数表达式Immediately Invoked Function Expression）包裹起来：**
 
 ```js
-"use strict";
-
 // index.js
 (function () {
+    "use strict";
     function f() {
     }
 })();
@@ -53,5 +52,5 @@ function g () {
 })();
 ```
 
-
+由于每个文件的内容被放置在一个单独的作用域中，所以严格模式的检查只影响本文件的内容。
 
