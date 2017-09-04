@@ -8,7 +8,7 @@ x == NaN; // => false
 另外，内置标准库 isNaN也不是很靠谱。
 
 ```js
-isNaN(NaN);                // => true
+isNaN(NaN);                // => truew
 isNaN('foo');              // => true
 isNaN(undefined);          // => true
 isNaN({});                 // => true
