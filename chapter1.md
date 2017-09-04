@@ -68,5 +68,24 @@ f('marshmallows'); // => "panut butter and marshmallows"
 
 ---
 
-第三个事实：
+第三个事实：闭包可以更新外部变量的值。
+
+```js
+function box () {
+    var val = undefined;
+    return {
+        set: function (newVal) {val = newVal; },
+        get: function () { return val; },
+        type: function () { return typeof val; }
+    }
+}
+
+var b = box();
+b.type(); // => 'undefined'
+b.set(98.6);
+b.get(); // => 98.6
+b.type(); // => number
+```
+
+
 
