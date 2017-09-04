@@ -68,7 +68,7 @@ f('marshmallows'); // => "panut butter and marshmallows"
 
 ---
 
-第三个事实：闭包可以更新外部变量的值。
+**第三个事实：闭包可以更新外部变量的值。**
 
 ```js
 function box () {
