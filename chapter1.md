@@ -12,6 +12,17 @@ function warpFunc() {
         return 'fuck'
     }
 }
+
+// 比较复杂的情况
+// 外部函数
+function warpElements(a) {
+   var result = [], i, n;
+   for (i = 0, n = a.length; i < n; i++) {
+        // 内部函数
+        result[i] = function () { return a[i]; }
+   }
+   return result;
+}
 ```
 
 2、 他必须引用外部函数定义的变量
@@ -92,8 +103,6 @@ function warpFunc() {
 ```
 
 是不是特别简单？
-
-
 
 # 闭包的意义
 
