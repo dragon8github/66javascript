@@ -29,5 +29,23 @@ w(); // => ????
 
 ---
 
+解决方法是通过创建一个**立即执行函数（IIFE） —— 局部作用域。**
 
+```js
+function warpElements(a) {
+    var result = [];
+    for (i = 0, n = a.length; i < n; i++) {
+        (function () {
+            var j = i;
+            result[i] = function() { return a[j]; }
+        })()       
+    }
+    return result;
+}
+var warp = warpElements([1, 2, 3, 4, 5, 6]);
+var w = warp[0];
+w(); // => 1
+```
+
+在闭包的外围嵌套一层函数作为它的外部（父）函数，并且立即执行。在这个新函数中，定义一些变量用来存储闭包的引用
 
