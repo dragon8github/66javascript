@@ -10,7 +10,7 @@ function warpElements(a) {
 }
 var warp =  warpElements([1, 2, 3, 4, 5, 6]);
 var w = warp[0];
-w(); // => ????
+w(); // => ?
 ```
 
 我们可能希望这段程序输出的是 1 ， 但实际上它输出的是 undefined
