@@ -9,8 +9,8 @@
 Prototype、getPrototype和\_\_proto\_\_之间的关系
 
 * User.prototype ： 由new User\(\)创建的**对象原型**
-* Object.getPrototype\(obj\)： 是ES5用来获取对象原型的标准方法。
-* obj.\_\_proto\_\_： 获取对象原型的非标准方法。
+* Object.getPrototype\(obj\)： 是ES5用来**获取对象原型的标准方法**。
+* obj.\_\_proto\_\_：** 获取对象原型的非标准方法**。
 
 ```js
 function User (name, passwordHash) {
@@ -27,6 +27,8 @@ User.prototype.checkPassword = function (password) {
 }
 
 var u = new User('Lee', '123456')
+
+Object.getPrototypeOf(u) === User.prototype; // true
 ```
 
 
