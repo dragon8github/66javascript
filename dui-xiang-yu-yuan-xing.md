@@ -32,5 +32,5 @@ Object.getPrototypeOf(u) === User.prototype; // true
 u.__proto__ === User.prototype; // true
 ```
 
-
+JavaScript 中类本质是一个构造函数\(User） 和一个关联的原型（ User.Propotype） 组成的一种设计模式。
 
