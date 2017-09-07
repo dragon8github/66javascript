@@ -6,7 +6,28 @@
 
 在许多语言中，每个对象是相关类的实例，类提供在其所有实例间共享代码。相反，JavaScript 并没有类的概念。对象是从其他对象中继承而来的。每个对象与其他一些对象是相关的，这些对象称之为原型。尽管依然使用了很多传统的面向对象语言的概念，但使用原型与使用类有很大差异。
 
+Prototype、getPrototype和\_\_proto\_\_之间的关系
 
+* User.prototype ： 由new User\(\)创建的**对象原型**
+* Object.getPrototype\(obj\)： 是ES5用来获取对象原型的标准方法。
+* obj.\_\_proto\_\_： 获取对象原型的非标准方法。
+
+```js
+function User (name, passwordHash) {
+    this.name = name;
+    this.passwordHash = passwordHash
+}
+
+User.prototype.toString = function () {
+    return "[User " + this.name + "]";
+}
+
+User.prototype.checkPassword = function (password) {
+    return hash(password) === this.passwordHash
+}
+
+var u = new User('Lee', '123456')
+```
 
 
 
