@@ -15,4 +15,10 @@
 ## 第二章
 
 * [对象与原型](dui-xiang-yu-yuan-xing.md)
+* [对象扩展](dui-xiang-kuo-zhan.md)
+* [类数组对象与数组化](lei-shu-zu-dui-xiang-yu-shu-zu-hua.md)
+* [类型的判断](lei-xing-de-pan-duan.md)
+* [字符串的处理](zi-fu-chuan-de-chu-li.md)
+* [面向原型编程](mian-xiang-yuan-xing-bian-cheng.md)
+* [浏览器判断](liu-lan-qi-pan-duan.md)
 
