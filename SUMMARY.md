@@ -22,4 +22,5 @@
 * [面向原型编程](mian-xiang-yuan-xing-bian-cheng.md)
 * [浏览器判断](liu-lan-qi-pan-duan.md)
 * [日起的扩展和修复](ri-qi-de-kuo-zhan-he-xiu-fu.md)
+* 进击的属性描述符
 
