@@ -9,8 +9,6 @@ new Date(year, month, day, hour, minute, second, millisecond);
 
 其中第3种可以玩多种花样，个人建议只使用 "1990/01/01 12:00:00“ 这样的格式。后面的时分秒可省略。这个格式所有浏览器都支持。此构造器的兼容列表可见下文：[http://dygraphs.com/date-formats.html](http://dygraphs.com/date-formats.html)
 
-
-
 Date的扩展
 
 ```js
@@ -42,6 +40,25 @@ function getLastDateInQuarter (date) {
 // 判断是否为闰年
 function isLeapYear (date) {
     return new Date(this.getFullYear(), 2, 0).getDate() == 29;
+}
+
+// 取得当前月份的天数
+function getDatasInMonth (date) {
+    switch (date.getMonth()) {
+        case 0:
+        case 2:
+        case 4:
+        case 6:
+        case 7:
+        case 9:
+        case 11:
+            return 31;
+        case 1:
+            var y = date.getFullYear();
+            return y % 4 == 0 && y % 100 != 0 || y % 400 == 0 ? 29 : 28;
+        default:
+            return 30
+    }
 }
 ```
 
