@@ -51,7 +51,7 @@ w(); // => 1
 
 为什么这次不会导致上述的问题呢？
 
-在回答这个问题之前，我们先看两个Demo
+在回答这个问题之前，我们先看三个Demo
 
 Demo1： 外部函数与立即执行函数（IIFE）
 
@@ -99,5 +99,25 @@ var w = warp[0];
 w() // => 6
 ```
 
-这次的demo显示，立即执行函数IIFE中的函数，依然和外部函数存在引用关系。
+这次的demo显示，立即执行函数IIFE中的（内部）函数，依然和外部函数存在引用关系。
+
+那么我们看最后一个Demo:
+
+```js
+function warpElements(a) {
+    var result = [];
+    for (i = 0, n = a.length; i < n; i++) {
+        (function() {
+            var j = i;
+            result[i] = (function() { return i; })();
+        })()
+    }
+    return result;
+}
+var warp = warpElements([1, 2, 3, 4, 5, 6]);
+var w = warp[0];
+w() // => 0
+```
+
+由此得出，局部作用域、立即执行函数IIFE确实有阻断外部引用的作用。
 
