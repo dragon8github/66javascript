@@ -49,7 +49,55 @@ var w = warp[0];
 w(); // => 1
 ```
 
-~~这一次闭包存储了 “j” 的引用，但为什么这次不会导致上述的问题呢？~~
+为什么这次不会导致上述的问题呢？
 
-~~答案就在于**立即执行函数（IIFE）。**尽管闭包确实引用了变量 “j”， 但 "j" 由于每次都被重新创建和赋值 "i" , 从而保证了 "j" 的值就是函数创建时的 "i"。 于是我们的问题得到解决。~~
+在回答这个问题之前，我们先看两个Demo
+
+Demo1： 外部函数与立即执行函数（IIFE）
+
+```js
+function warpElements(a) {
+    var result = [];
+    for (i = 0, n = a.length; i < n; i++) {
+        (function() {
+            var j = i;
+            result[i] = i; 
+        })()
+    }
+    return result;
+}
+var warp = warpElements([1, 2, 3, 4, 5, 6]);
+var w = warp[0];
+console.log(w) // => 0
+```
+
+我们先重温一下闭包的两个特征：
+
+1、闭包就是函数中的函数。既外部函数和内部函数的关系。而内部函数就是我们说的闭包；
+
+2、外部函数定义的变量被内部函数使用时，那么这个变量就会变成引用类型，所以变量一旦变化，也会影响内部函数中引用变量的变化。
+
+通过上述的例子，我们需要分别对这两个问题进行思考：
+
+如果内部函数是一个立即执行函数（IIFE）呢？它还会产生引用关系吗？
+
+带着这两个问题，我们继续看下面这个demo：
+
+```js
+function warpElements(a) {
+    var result = [];
+    for (i = 0, n = a.length; i < n; i++) {
+        (function() {
+            var j = i;
+            result[i] = function() { console.log(i); }
+        })()
+    }
+    return result;
+}
+var warp = warpElements([1, 2, 3, 4, 5, 6]);
+var w = warp[0];
+w() // => 6
+```
+
+这次的demo显示，立即执行函数IIFE中的函数，依然和外部函数存在引用关系。
 
