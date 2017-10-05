@@ -31,7 +31,7 @@ w(); // => ?
 
 ---
 
-解决方法是通过创建一个**立即执行函数（IIFE） —— 局部作用域。**
+解决方法是通过**立即执行函数（IIFE）创建一个局部作用域 **
 
 ```js
 function warpElements(a) {
@@ -40,7 +40,7 @@ function warpElements(a) {
         (function () {
             var j = i;
             result[i] = function() { return a[j]; }
-        })()
+        }())
     }
     return result;
 }
