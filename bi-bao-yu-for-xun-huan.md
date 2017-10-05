@@ -60,7 +60,6 @@ function warpElements(a) {
     var result = [];
     for (i = 0, n = a.length; i < n; i++) {
         (function() {
-            var j = i;
             result[i] = i; 
         })()
     }
@@ -88,7 +87,6 @@ function warpElements(a) {
     var result = [];
     for (i = 0, n = a.length; i < n; i++) {
         (function() {
-            var j = i;
             result[i] = function() { console.log(i); }
         })()
     }
@@ -108,7 +106,6 @@ function warpElements(a) {
     var result = [];
     for (i = 0, n = a.length; i < n; i++) {
         (function() {
-            var j = i;
             result[i] = (function() { return i; })();
         })()
     }
