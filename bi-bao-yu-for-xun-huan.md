@@ -40,7 +40,7 @@ function warpElements(a) {
         (function () {
             var j = i;
             result[i] = function() { return a[j]; }
-        })()
+        })() 
     }
     return result;
 }
